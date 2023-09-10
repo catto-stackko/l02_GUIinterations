@@ -10,52 +10,37 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
-    Button incrementButton, submitButton;
-    TextView greetingDisplay;
-    TextView nameDisplay;
-    int count = 0;
-    String[] planets;
-    RadioButton leftRadBut, rightRadBut;
-    EditText nameInput;
+    TextView titleTextview, totalTextview;
+    EditText pennyInput, nickelInput, dimeInput, quarterInput;
+    Button submitButton;
+    double total = 0.0;
+    int pennyCount = 0;
+    int nickelCount = 0;
+    int dimeCount = 0;
+    int quarterCount = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        incrementButton = findViewById(R.id.increment_button);
+        titleTextview = findViewById(R.id.title_textview);
+        totalTextview = findViewById(R.id.total_textview);
+        pennyInput = findViewById(R.id.penny_edittext);
+        nickelInput = findViewById(R.id.nickel_edittext);
+        dimeInput = findViewById(R.id.dime_edittext);
+        quarterInput = findViewById(R.id.quarter_edittext);
         submitButton = findViewById(R.id.submit_button);
-        greetingDisplay = findViewById(R.id.greeting_textview);
-        nameDisplay = findViewById(R.id.whatName_textview);
-        planets = getResources().getStringArray(R.array.planets_array);
-        leftRadBut = findViewById(R.id.radio_left);
-        rightRadBut = findViewById(R.id.radio_right);
-        nameInput = findViewById(R.id.editTextName);
-        incrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                System.out.println("incrementing: " + ++count);
-//                Log.i("incrementing", ""+count);
-//                greetingDisplay.setText(getString(R.string.likes_count,count));
-                if(rightRadBut.isChecked())
-                    count = ++count % planets.length;
-                greetingDisplay.setText(planets[count]);
-            }
-        });
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nameDisplay.setText("Hi " + nameInput.getText() + "!");
+                pennyCount = Integer.parseInt(pennyInput.getText().toString());
+                nickelCount = Integer.parseInt(nickelInput.getText().toString());
+                dimeCount = Integer.parseInt(dimeInput.getText().toString());
+                quarterCount = Integer.parseInt(quarterInput.getText().toString());
+
+                total = 0.01 * ((pennyCount * 1.0) + (nickelCount * 5.0) + (dimeCount * 10.0) + (quarterCount * 25.0) );
+                totalTextview.setText("Total: $" + total);
             }
         });
-    }
-
-    public void decrement(View view) {
-//        System.out.println("decrementing: " + --count);
-//        greetingDisplay.setText(getString(R.string.likes_count,count));
-        if(leftRadBut.isChecked())
-            if(--count < 0)
-                count = planets.length - 1;
-        greetingDisplay.setText(planets[count]);
     }
 }

@@ -1,19 +1,11 @@
 <resources>
-    <string name="app_name">l02_GUIinterations</string>
-    <string name="hi_mom">Hi MOM</string>
-    <string name="increment">Increment</string>
-    <string name="decrement">Decrement</string>
-    <string name="likes_count">You have %1$d likes</string>
-    <string name="radio_label_down">Down</string>
-    <string name="radio_label_up">Up</string>
-    <string name="enter_name">Enter Name</string>
-    <string name="what_is_your_name">What is Your Name?</string>
+    <string name="app_name">Coin Calculator</string>
     <string name="submit">Submit</string>
+    <string name="pennies"># of Pennies</string>
+    <string name="nickels"># of Nickels</string>
+    <string name="dimes"># of Dimes</string>
+    <string name="quarters"># of Quarters</string>
+    <string name="coin_calculator">Coin Calculator</string>
+    <string name="penny">penny</string>
 
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-    </string-array>
 </resources>
